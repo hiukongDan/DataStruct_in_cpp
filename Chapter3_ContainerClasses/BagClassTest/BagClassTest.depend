@@ -1,0 +1,129 @@
+# depslib dependency file v1.0
+1573139161 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\main.cpp
+	<iostream>
+	<cstdlib>
+	<cassert>
+	"bag1.h"
+	"sequence1.h"
+	"set1.h"
+	"sequence2.h"
+	"bag2.h"
+	"bag3.h"
+	"polynomial1.h"
+	"tic_tac_toe.h"
+	"pokerhand.h"
+	"peg1.h"
+	"towers.h"
+	"big_number.h"
+
+1572422598 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag.h
+	<cstdlib>
+
+1572366441 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\bag.cpp
+	"Bag.h"
+
+1572485238 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\bag1.cpp
+	"bag1.h"
+	<cassert>
+	<algorithm>
+
+1572489264 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag1.h
+	<cstdlib>
+
+1572493069 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\sequence1.cpp
+	"sequence1.h"
+	<cassert>
+	<algorithm>
+
+1572493069 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\sequence1.h
+	<cstdlib>
+
+1572450575 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\sequence_test.cpp
+	<cctype>
+	<iostream>
+	<cstdlib>
+	"sequence1.h"
+
+1572493212 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\set1.cpp
+	"set1.h"
+	<cassert>
+
+1572493214 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\set1.h
+	<cstdlib>
+
+1572869071 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\sequence2.cpp
+	"sequence2.h"
+	<cassert>
+
+1572868719 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\sequence2.h
+	<cstdlib>
+
+1572872814 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\bag2.cpp
+	"bag2.h"
+	<cassert>
+
+1572873766 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag2.h
+	<cstdlib>
+
+1572877735 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\bag3.cpp
+	"bag3.h"
+	<cassert>
+	<iostream>
+
+1572877303 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag3.h
+	<cstdlib>
+
+1572934812 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\polynomial1.cpp
+	"polynomial1.h"
+	<cassert>
+	<cmath>
+
+1572934592 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\polynomial1.h
+	<cstdlib>
+
+1572945803 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\tic_tac_toe.cpp
+	"tic_tac_toe.h"
+	<cctype>
+	<cassert>
+	<iostream>
+
+1572945925 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\tic_tac_toe.h
+	<cstdlib>
+
+1573041952 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\pokerhand.h
+	<cstdlib>
+
+1573042007 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\pokerhand.cpp
+	"pokerhand.h"
+	<cassert>
+
+1573051732 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\peg1.cpp
+	"peg1.h"
+	<cassert>
+	<iostream>
+
+1573046949 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\peg1.h
+	<cstdlib>
+	<iostream>
+
+1573051648 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\towers.cpp
+	"towers.h"
+	"peg1.h"
+	<iostream>
+	<cassert>
+
+1573106456 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\towers.h
+	"peg1.h"
+	<cstdlib>
+	<iostream>
+
+1573139068 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\big_number.cpp
+	"big_number.h"
+	<iostream>
+	<cstdlib>
+	<cassert>
+
+1573141196 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\big_number.h
+	<cstdlib>
+	<iostream>
+
