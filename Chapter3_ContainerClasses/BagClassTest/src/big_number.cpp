@@ -70,50 +70,74 @@ void big_number::operator +=(const big_number& addend)
 
     if (sign == addend.sign)
     {
+        cout << "case 11: " << endl;
         int i;
         for (i = 0; i < numLess; i++)
         {
-            temp = data[i] - '0' + addend.data[i] - '0';
-            data[i] = temp % 10 + addone + '0';
+            temp = data[i] - '0' + addend.data[i] - '0' + addone;
+            data[i] = temp % 10 + '0';
             addone = temp / 10;
         }
         for (; i < numGreater; i++)
         {
+            temp = 0;
             temp += data[i] == 0 ? 0 : data[i] - '0';
             temp += addend.data[i] == 0 ? 0 : addend.data[i] - '0';
-            data[i] = temp % 10 + addone + '0';
+            temp += addone;
+            data[i] = temp % 10 + '0';
             addone = temp / 10;
         }
     }
     else if (abs(*this) > abs(addend))
     {
-        if (sign > addend.sign)
+        cout << "case 12: " << endl;
+        int i;
+        for (i = 0; i < numLess; i++)
         {
-
+            temp = data[i] - addend.data[i] + 10 + addone;
+            data[i] = temp % 10 + '0';
+            addone = temp / 10 - 1;
         }
-        else
+        for (; i < numGreater; i++)
         {
-
+            temp = data[i] - '0' + addone + 10;
+            data[i] = temp % 10 + '0';
+            addone = temp / 10 - 1;
         }
+        /* remove preceding zeros */
+        for (; i > 0; i--)
+            if (data[i] == '0')
+                data[i] = 0;
+            else
+                break;
     }
     else if(abs(*this) < abs(addend))
     {
-        if (addend.sign > sign)
+        cout << "case 13: " << endl;
+        int i;
+        for (i = 0; i < numLess; i++)
         {
-
+            temp = addend.data[i] - data[i] + 10 + addone;
+            data[i] = temp % 10 + '0';
+            addone = temp / 10 - 1;
         }
-        else
+        for (; i < numGreater; i++)
         {
-
+            temp = addend.data[i] - '0' + addone + 10;
+            data[i] = temp % 10 + '0';
+            addone = temp / 10 - 1;
         }
+        sign *= -1;
     }
     else    /* abs(*this) == abs(addend) */
     {
+        cout << "case 14: " << endl;
         data[0] = '0';
         for (int i = 1; i < num1; i++)
             data[i] = 0;
     }
 }
+
 void big_number::operator -=(const big_number& minend)
 {
     big_number temp = minend;

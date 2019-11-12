@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
+#include <string>
 
 #include "bag1.h"
 #include "sequence1.h"
@@ -17,6 +18,8 @@
 #include "peg1.h"
 #include "towers.h"
 #include "big_number.h"
+#include "deck_of_cards.h"
+#include "sequence3.h"
 
 using namespace std;
 
@@ -41,7 +44,7 @@ void check_ages(bag& ages);
 
 void get_ages(sequence& ages);
 // Postcondition: The user has been prompted to type in the ages of family members. These
-// ages have been read and placed in the ages sequence, stopping then the sequence is full or when
+// ages have been read and placed in the ages sequence, stopping when the sequence is full or when
 // the user types a negative numbers.
 
 void show_ages(sequence& ages);
@@ -54,6 +57,15 @@ void show_ages(sequence& ages);
 bool bag_blackbox_test();
 // Postcondition: A black box test for the bag class, where only access members through public member
 // functions. Returns true if the test passed, otherwise returns false.
+
+void get_person(person_sequence& friends);
+// Postcondition: The user has been prompted to type in his friend's name and birthday. These information
+// are placed and stored in sequence friends.
+
+void print_menu();
+// Postcondition: Print a menu for friend's birthday recording system.
+// Instruct user to enter a choice for later operation.
+
 
 
 int main()
@@ -198,10 +210,76 @@ int main()
     }
     */
 
-    big_number bnum1(-1230);
-    big_number bnum2(124);
-    cout << bnum1 << " < " << bnum2 << " " << (bnum1 < bnum2) << endl;
-    cout << bnum1 << " > " << bnum2 << " " << (bnum1 > bnum2) << endl;
+    /*
+    big_number bnum1(1234);
+    big_number bnum2(-321);
+    big_number temp;
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2  << " = " << temp << "(" << 1234-321 << ")" << endl;
+
+    bnum1 = big_number(123);
+    bnum2 = big_number(234);
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2 << " = " << temp << "(" << 123 + 234 << ")" << endl;
+
+    bnum1 = big_number(-123);
+    bnum2 = big_number(-34566);
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2 << " = " << temp << "(" << -123-34566 << ")" << endl;
+
+    bnum1 = big_number(-12345);
+    bnum2 = big_number(43);
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2 << " = " << temp << "(" << -12345+43 << ")" << endl;
+
+    bnum1 = big_number(23);
+    bnum2 = big_number(-5321);
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2 << " = " << temp << "(" << 23-5321 << ")" << endl;
+
+    bnum1 = big_number(-43);
+    bnum2 = big_number(53241);
+    temp = bnum1 + bnum2;
+    cout << bnum1 << " + " << bnum2 << " = " << temp << "(" << -43+53241 << ")" << endl;
+    */
+
+    /* TEST for FRIEND BIRTHDAY RECORDING PROGRAM
+    person_sequence friends;
+
+    char choice;
+    std::string name;
+    int index = 0;
+
+    do
+    {
+        print_menu();
+        cin >> choice;
+        choice = toupper(choice);
+        switch(choice)
+        {
+        case 'I':
+            get_person(friends);
+            break;
+        case 'R':
+            cout << "Please enter your friend's name: " << endl;
+            cout << ">> ";
+            cin >> name;
+            index = friends.find(name);
+            if (index > -1)
+                displayPerson(friends.current());
+            else
+                cout << "Not found: " << name << endl;
+            break;
+        case 'Q':
+            cout << "Thanks for using Friends Birthday Recording System, bye!" << endl;
+            break;
+        default:
+            cout << "Invalid operation: " << choice << endl;
+            break;
+        }
+    } while(choice != 'Q');
+    */
+
 
 
     return EXIT_SUCCESS;
@@ -220,7 +298,7 @@ void get_ages(bag& ages)
         if (ages.size() < ages.CAPACITY)
             ages.insert(user_input);
         else
-            cout << "I have run of room and can't add that age." << endl;
+            cout << "I have run out of room and can't add that age." << endl;
         cin >> user_input;
     }
 }
@@ -345,4 +423,37 @@ bool bag_blackbox_test()
         return false;
     }
     return true;
+}
+
+
+void get_person(person_sequence& friends)
+{
+    int year, month, day;
+    date d;
+    person p;
+    std::string name;
+    cout << "Enter your friend's name: ";
+    cin >> name;
+    cout << "Enter your friend's birthday: " << endl;
+    cout << "year: ";
+    cin >> year;
+    cout << "month: ";
+    cin >> month;
+    cout << "day: ";
+    cin >> day;
+
+    d = date(day, month, year);
+    p = person(name, d);
+    friends.insert(p);
+}
+
+void print_menu()
+{
+    cout << ">>>The Friend's Birthday Recording System<<<" << endl;
+    cout << "Please choose operation:" << endl;
+    cout << "I: Insert new entry." << endl;
+    cout << "R: Retrieve friend's birthday." << endl;
+    cout << "Q: Quit program." << endl;
+    cout << "Enter your choice: " << endl;
+    cout << ">> ";
 }
