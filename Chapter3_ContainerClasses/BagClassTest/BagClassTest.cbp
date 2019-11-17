@@ -41,6 +41,7 @@
 		<Unit filename="include/card.h" />
 		<Unit filename="include/date.h" />
 		<Unit filename="include/deck_of_cards.h" />
+		<Unit filename="include/employee.h" />
 		<Unit filename="include/peg1.h" />
 		<Unit filename="include/person.h" />
 		<Unit filename="include/pokerhand.h" />
@@ -48,6 +49,7 @@
 		<Unit filename="include/sequence1.h" />
 		<Unit filename="include/sequence2.h" />
 		<Unit filename="include/sequence3.h" />
+		<Unit filename="include/sequence4.h" />
 		<Unit filename="include/set1.h" />
 		<Unit filename="include/tic_tac_toe.h" />
 		<Unit filename="include/towers.h" />
@@ -59,6 +61,7 @@
 		<Unit filename="src/card.cpp" />
 		<Unit filename="src/date.cpp" />
 		<Unit filename="src/deck_of_cards.cpp" />
+		<Unit filename="src/employee.cpp" />
 		<Unit filename="src/peg1.cpp" />
 		<Unit filename="src/person.cpp" />
 		<Unit filename="src/pokerhand.cpp" />
@@ -66,6 +69,7 @@
 		<Unit filename="src/sequence1.cpp" />
 		<Unit filename="src/sequence2.cpp" />
 		<Unit filename="src/sequence3.cpp" />
+		<Unit filename="src/sequence4.cpp" />
 		<Unit filename="src/set1.cpp" />
 		<Unit filename="src/tic_tac_toe.cpp" />
 		<Unit filename="src/towers.cpp" />

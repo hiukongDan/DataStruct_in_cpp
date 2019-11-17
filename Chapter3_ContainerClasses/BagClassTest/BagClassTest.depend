@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1573486157 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\main.cpp
+1573969412 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\main.cpp
 	<iostream>
 	<cstdlib>
 	<cassert>
@@ -18,6 +18,7 @@
 	"big_number.h"
 	"deck_of_cards.h"
 	"sequence3.h"
+	"sequence4.h"
 
 1572422598 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag.h
 	<cstdlib>
@@ -168,8 +169,18 @@
 	<string>
 	"person.h"
 
-1573565029 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\employee.cpp
+1573970420 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\employee.cpp
 	"employee.h"
 
-1573565228 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\employee.h
+1573969446 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\employee.h
+	<string>
+
+1573971167 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\sequence4.cpp
+	"sequence4.h"
+	<cassert>
+	<algorithm>
+
+1573968556 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\sequence4.h
+	<cstdlib>
+	"employee.h"
 
