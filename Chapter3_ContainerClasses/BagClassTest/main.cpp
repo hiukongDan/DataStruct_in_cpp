@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <cassert>
 #include <string>
+#include <set>
+#include <cstdio>
+#include <windows.h>
 
 #include "bag1.h"
 #include "sequence1.h"
@@ -21,6 +24,7 @@
 #include "deck_of_cards.h"
 #include "sequence3.h"
 #include "sequence4.h"
+#include "life.h"
 
 using namespace std;
 
@@ -76,6 +80,14 @@ void print_employee_menu();
 
 void print_employee_modify_menu();
 // Postcondition: Print out a sub menu for employee modification.
+
+void print_chore_menu();
+// Postcondition: Print out a menu for chores recording list.
+
+string read_chore();
+// Postcondition: Read in one line by user.
+
+
 
 
 int main()
@@ -290,6 +302,8 @@ int main()
     } while(choice != 'Q');
     */
 
+
+    /*
     employee_sequence employees;
 
     char choice;
@@ -385,13 +399,6 @@ int main()
             default:
                 break;
             }
-            /*
-                cout << "\tN: Change name" << endl;
-                cout << "\tA: Change age" << endl;
-                cout << "\tW: Change wage" << endl;
-                cout << "\tS: Change sex" << endl;
-                cout << "\tI: Increase wage" << endl;
-            */
             break;
         case 'R':
             cout << "Enter employee's id: " << endl;
@@ -434,22 +441,307 @@ int main()
         default:
             break;
         }
-
-    /*
-    I: Insert new entry.
-    D: Remove entry.
-    M: Modify employee's information.
-    R: Retrieve Employee's information.
-    A: Calculate average ages.
-    S: Calculate average salaries.
-    H: Calculate average number of hours worded.
-    F: Calculate radio of male/female.
-    Q: Quit program.
+    } while(choice != 'Q');
     */
 
-    } while(choice != 'Q');
+
+    /* nine digits multiset counting test
+    std::multiset<char> mulSet;
+
+    int nums = 0;
+    char digit;
+
+    cout << "Enter nine digits: ";
+
+    while (nums < 9)
+    {
+        cin >> digit;
+        digit = toupper(digit);
+        if (isdigit(digit))
+        {
+            mulSet.insert(digit);
+            nums++;
+        }
+    }
+
+    std::multiset<char>::iterator it = mulSet.begin();
+
+    char lastDigit = *it++;
+    int count = 1;
+
+    for (; it != mulSet.end(); it++)
+    {
+        if (*it != lastDigit)
+        {
+            if(count > 1)
+                cout << lastDigit << ":" << count << endl;
+            count = 1;
+        }
+        else
+            count++;
+        lastDigit = *it;
+    }
+
+    if (count > 1)
+        cout << lastDigit << ":" << count << endl;
+    */
+
+
+
+    /* chores multisets
+    multiset<string> chores_list;
+    char c;
+    string temp;
+    multiset<string>::iterator it;
+    int i;
+
+    cout << "Enter your name: ";
+    getline(cin, temp);
+    cout << temp << endl;
+
+    chores_list.insert(temp);
+
+    do
+    {
+        print_chore_menu();
+
+        cout << "Enter a choice: ";
+        cin >> c;
+        c = toupper(c);
+
+        switch(c)
+        {
+            case 'A':
+                cin.clear();
+                fflush(stdin);
+
+                cout << "Enter your chore name: ";
+                getline(cin, temp);
+                cout << temp << endl;
+
+                chores_list.insert(temp);
+
+                break;
+            case 'B':
+                cout << "Total chore number: " << chores_list.size() << endl;
+                cout << endl;
+                break;
+            case 'C':
+                it = chores_list.begin();
+                i = 0;
+                for (; it != chores_list.end(); it++)
+                {
+                    cout << i++ << ". " << *it << endl;
+                }
+                cout << endl;
+                break;
+            case 'D':
+                cout << "Enter index number: " << endl;
+                cin >> i;
+                if (i < 0 || i >= (int)chores_list.size())
+                    cout << "Index out of bound." << endl;
+                else
+                {
+                    it = chores_list.begin();
+                    for (;i>0;i--)
+                        it++;
+                    chores_list.erase(it);
+                }
+
+
+                cout << endl;
+                break;
+            case 'Q':
+                cout << "Good bye" << endl;
+                break;
+            default:
+                break;
+        }
+    }while (c != 'Q');
+
+    */
+
+
+    /*
+    const int N = 50;
+    int index = -1;
+    string actors[N];
+    multiset<string> roles[N];
+
+    FILE *fp = fopen("data/actor_film.txt", "r");
+
+    if (fp == NULL)
+        cout << "File opened failed." << endl;
+    else
+    {
+        cout << "File opened successfully." << endl;
+
+        int c;
+        string temp;
+        while ((c = fgetc(fp)) != EOF)
+        {
+            if (c == '[')
+            {
+                temp.clear();
+                while ((c = fgetc(fp)) != EOF && c != ']')
+                {
+                    temp += c;
+                }
+                actors[++index] = temp;
+            }
+            temp.clear();
+            if (c != '\n' && c != ']')
+            {
+                if (index < 0)
+                    break;
+                do
+                {
+                    temp += c;
+                }while((c = fgetc(fp)) != EOF && c != '\n');
+                roles[index].insert(temp);
+            }
+        }
+        fclose(fp);
+    }
+
+    int actor_number = index + 1;
+
+    puts("Operation completed.");
+
+    multiset<string>::iterator it;
+
+    string temp;
+    bool passed;
+    do
+    {
+        passed = false;;
+        cout << "Enter a movie's name or an actor's name: " << endl;
+        getline(cin, temp);
+        for (int i = 0; i < actor_number; i++)
+        {
+            if (actors[i] == temp)
+            {
+                cout << temp << " has stared in: " << endl;
+                it = roles[i].begin();
+                for (; it != roles[i].end(); it++)
+                {
+                    cout << "\t" << *it << endl;
+                }
+                cout << endl;
+                passed = true;
+                break;
+            }
+        }
+
+        if(!passed)
+        {
+            multiset<string> tempActors;
+            for (int i = 0; i < actor_number; i++)
+            {
+                it = roles[i].begin();
+                for (; it != roles[i].end(); it++)
+                {
+                    if (temp == *it)
+                    {
+                        tempActors.insert(actors[i]);
+                        break;
+                    }
+                }
+            }
+            if (!tempActors.empty())
+            {
+                multiset<string>::iterator ita = tempActors.begin();
+                cout << temp << ":" << endl;
+                for (; ita != tempActors.end(); ita++)
+                    cout << "\t" << *ita << endl;
+                passed = true;
+            }
+        }
+
+        if (!passed)
+        {
+            cout << temp << " is not a correct entry." << endl;
+        }
+
+
+    }while(!temp.empty());
+    */
+
+    life cells;
+    cells.init();
+
+
+
+    life::value_type beacon[life::ROW_NUM][life::COL_NUM];
+    for (life::size_type i = 0; i < life::ROW_NUM; i++)
+        for (life::size_type j = 0;j < life::COL_NUM; j++)
+            beacon[i][j] = false;
+
+    beacon[2][3] = true;
+    beacon[2][4] = true;
+    beacon[1][3] = true;
+    beacon[1][4] = true;
+    beacon[3][5] = true;
+    beacon[3][6] = true;
+    beacon[4][5] = true;
+    beacon[4][6] = true;
+
+
+    cells.set_cells(beacon);
+
+    cells.print_cells();
+
+    char c;
+    int s;
+
+    do
+    {
+        cout << "N: next timestep" << endl;
+        cout << "I: initiate cells" << endl;
+        cout << "S: enter seed: " << endl;
+        cout << "Q: quit program" << endl;
+        cout << "Enter choice: " << endl;
+        cin >> c;
+        c = toupper(c);
+        switch(c)
+        {
+        case 'N':
+            cells.generate();
+            cells.print_cells();
+            break;
+        case 'I':
+            cells.init();
+            break;
+        case 'S':
+            cout << "Enter a number between 0 and " << RAND_MAX << ": ";
+            cin >> s;
+            cells.init(s);
+            break;
+        default:
+            break;
+        }
+    }while(c != 'Q');
+
+
 
     return EXIT_SUCCESS;
+}
+
+string read_chore()
+{
+    string temp;
+    cout << "Enter chore name: ";
+    getline(cin, temp);
+    return temp;
+}
+
+void print_chore_menu()
+{
+    cout << "A: Add item to chore list." << endl;
+    cout << "B: Returns number of chores in the list." << endl;
+    cout << "C: Print out chore list." << endl;
+    cout << "D: Delete item from the list." << endl;
+    cout << "Q: Exit program." << endl;
 }
 
 

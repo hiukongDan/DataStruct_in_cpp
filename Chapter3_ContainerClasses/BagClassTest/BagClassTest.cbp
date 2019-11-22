@@ -42,6 +42,7 @@
 		<Unit filename="include/date.h" />
 		<Unit filename="include/deck_of_cards.h" />
 		<Unit filename="include/employee.h" />
+		<Unit filename="include/life.h" />
 		<Unit filename="include/peg1.h" />
 		<Unit filename="include/person.h" />
 		<Unit filename="include/pokerhand.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="src/date.cpp" />
 		<Unit filename="src/deck_of_cards.cpp" />
 		<Unit filename="src/employee.cpp" />
+		<Unit filename="src/life.cpp" />
 		<Unit filename="src/peg1.cpp" />
 		<Unit filename="src/person.cpp" />
 		<Unit filename="src/pokerhand.cpp" />

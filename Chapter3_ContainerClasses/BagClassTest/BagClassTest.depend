@@ -1,9 +1,12 @@
 # depslib dependency file v1.0
-1573969412 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\main.cpp
+1574409025 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\main.cpp
 	<iostream>
 	<cstdlib>
 	<cassert>
 	<string>
+	<set>
+	<cstdio>
+	<windows.h>
 	"bag1.h"
 	"sequence1.h"
 	"set1.h"
@@ -19,6 +22,7 @@
 	"deck_of_cards.h"
 	"sequence3.h"
 	"sequence4.h"
+	"life.h"
 
 1572422598 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\bag.h
 	<cstdlib>
@@ -183,4 +187,12 @@
 1573968556 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\sequence4.h
 	<cstdlib>
 	"employee.h"
+
+1574408400 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\src\life.cpp
+	"life.h"
+	<iostream>
+	<algorithm>
+
+1574408264 d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\bagclasstest\include\life.h
+	<cstdlib>
 
