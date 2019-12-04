@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1575372064 source:d:\users\ifsob\codes\datastruct_in_cpp\chapter3_containerclasses\pointers_dynamic_arrays\main.cpp
+	<iostream>
+	<cassert>
+	<cstdlib>
+
