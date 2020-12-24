@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o bag_1.o node_1.o
-LINKOBJ  = main.o bag_1.o node_1.o
+OBJ      = main.o bag_1.o node_1.o course_1.o student_1.o
+LINKOBJ  = main.o bag_1.o node_1.o course_1.o student_1.o
 LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -32,3 +32,9 @@ bag_1.o: bag_1.cpp
 
 node_1.o: node_1.cpp
 	$(CPP) -c node_1.cpp -o node_1.o $(CXXFLAGS)
+
+course_1.o: course_1.cpp
+	$(CPP) -c course_1.cpp -o course_1.o $(CXXFLAGS)
+
+student_1.o: student_1.cpp
+	$(CPP) -c student_1.cpp -o student_1.o $(CXXFLAGS)

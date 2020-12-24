@@ -61,8 +61,13 @@ void node_insert_head(Node*& headPtr, Node::value_type entry){
 }
 
 void node_insert(Node*& insertPtr, Node::value_type entry){
-	Node* nodeToInsert = new Node(entry, insertPtr->link());
-	insertPtr->set_link(nodeToInsert);
+	if(insertPtr == NULL){
+		node_insert_head(insertPtr, entry);
+	}
+	else{
+		Node* nodeToInsert = new Node(entry, insertPtr->link());
+		insertPtr->set_link(nodeToInsert);
+	}
 }
 
 const Node* node_search(const Node* headPtr, Node::value_type target){
@@ -120,6 +125,24 @@ Node* node_set(Node* headPtr){
 	return setPtr;
 }
 
+void node_reverse(Node*& headPtr){
+	if(node_size(headPtr) == 0){
+		return;
+	}
+	
+	Node* cursor = headPtr->link();
+	Node* tmp;
+	
+	headPtr->link() = NULL; // tail
+	while(cursor != NULL){
+		tmp = headPtr;
+		headPtr = cursor;
+		cursor = cursor->link();
+		
+		headPtr->link() = tmp;
+	}
+}
+
 void node_traverse(const Node* headPtr){
 	const Node* cursor = headPtr;
 	while(cursor != NULL){
@@ -127,4 +150,87 @@ void node_traverse(const Node* headPtr){
 		cursor = cursor->link();
 	}
 	std::cout << std::endl;
+}
+
+// Postcondition: release every space holding by the nodes in this list pointed by headPtr
+void node_clear(Node* headPtr){
+	while(headPtr != NULL){
+		Node* tmp = headPtr;
+		headPtr = headPtr->link();
+		delete tmp;
+	}
+}
+
+// Postcondition: 
+void node_remove(Node*& headPtr, Node::value_type target){
+	Node* precursor = NULL;
+	Node* cursor = headPtr;
+	while(cursor != NULL){
+		if(cursor->data() == target){
+			if(precursor == NULL){
+				headPtr = cursor->link();
+				delete cursor;
+			}
+			else{
+				precursor->link() = cursor->link();
+				delete cursor;
+			}
+			break;
+		}
+		precursor = cursor;
+		cursor = cursor->link();
+	}
+}
+
+// Postcondition: headPtr points to the target deleted node list
+//					targetPtr pointes to target's link_field which is the next to the deleted node
+void node_remove(Node*& headPtr, Node*& targetPtr){
+	Node* precursor = NULL;
+	Node* cursor = headPtr;
+	while(cursor != NULL){
+		if(cursor == targetPtr){
+			if(precursor == NULL){
+				headPtr = cursor->link();
+				targetPtr = headPtr;
+				delete cursor;
+			}
+			else{
+				precursor->link() = cursor->link();
+				targetPtr = cursor->link();
+				delete cursor;
+			}
+			break;
+		}
+		precursor = cursor;
+		cursor = cursor->link();
+	}
+}
+
+// selection sort with smaller at head
+void node_sort(Node*& headPtr){
+	Node* resPtr = NULL;
+	while(headPtr->link() != NULL){
+		Node* biggest_pre = NULL;
+		Node* biggest = headPtr;
+		Node* cursor_pre = headPtr;
+		Node* cursor = headPtr->link();
+		while(cursor != NULL){
+			if(biggest->data() < cursor->data()){
+				biggest = cursor;
+				biggest_pre = cursor_pre;
+			}
+			cursor = cursor->link();
+			cursor_pre = cursor_pre->link();
+		}
+		
+		if(biggest_pre == NULL)
+			headPtr = biggest->link();
+		else
+			biggest_pre->link() = biggest->link();
+		
+		biggest->link() = resPtr;
+		resPtr = biggest;
+		
+	}
+	headPtr->link() = resPtr;
 }

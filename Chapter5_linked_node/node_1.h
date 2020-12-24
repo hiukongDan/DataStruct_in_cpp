@@ -1,5 +1,5 @@
-#ifndef HIUKONG_DAN_NODE_1_H
-#define HIUKONG_DAN_NODE_1_H
+#ifndef _HIUKONG_DAN_NODE_1_H
+#define _HIUKONG_DAN_NODE_1_H
 
 #include <cstdlib>
 #include <iostream>
@@ -44,12 +44,22 @@ const Node* node_search(const Node* headPtr, Node::value_type target);
 
 Node* node_search(Node* headPtr, Node::value_type target);
 
+void node_remove(Node*& headPtr, Node::value_type target);
+
+void node_remove(Node*& headPtr, Node*& targetPtr);
+
 Node* node_locate(Node* headptr, Node::size_type i);
 
 Node::size_type node_copy(Node*& sourcePtr, Node*& headPtr, Node*& tailPtr);
 
 Node* node_set(Node* headPtr);
 
+void node_reverse(Node*& headPtr);
+
 void node_traverse(const Node* headPtr);
+
+void node_clear(Node* headPtr);
+
+void node_sort(Node*& headPtr);
 
 #endif // HIUKONG_DAN_NODE_1_H
