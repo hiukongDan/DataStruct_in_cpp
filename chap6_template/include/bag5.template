@@ -1,0 +1,46 @@
+#include "node_2.h"
+
+namespace hiukong_dan{
+
+// CONSTRUCTORS AND DESTRUCTORS
+template<class Item>
+Bag<Item>::Bag(){
+    headPtr = NULL;
+    bag_size = 0;
+}
+
+//Bag<Item>::Bag(const Bag& source);
+
+Bag::~Bag(){
+    list_clear(headPtr);
+    bag_size = 0;
+}
+
+// MODIFICATION MEMBER FUNCTIONS
+//size_type erase(Item target);
+//void erase_one(Item target);
+
+template<class Item>
+void Bag<Item>::insert(Item target){
+    list_head_insert(headPtr, target);
+    ++bag_size;
+}
+
+//void operator +=(const Bag& other);
+//void operator =(const Bag& other);
+
+// CONST MEMBER FUNCTIOS
+//size_type count(Item target) const;
+//Item grab() const;
+//size_type size() const {reuturn bag_size;}
+
+// ITERATOR FUNCTIONS
+//NodeIterator begin(){return NodeIterator(headPtr);}
+//Const_NodeIterator begin() const{return Const_NodeIterator(headPtr);}
+//NodeIterator end(){return NodeIterator(headPtr);}
+//Const_NodeIterator end() const{return Const_NodeIterator();
+
+//template<class Item>
+//Bag operator +(const Bag& bag1, const Bag& bag2);
+
+};

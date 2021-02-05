@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1612100407 source:d:\users\ifsob\cpp_workspace\datastruct_in_cpp\chap6_template\main.cpp
+	<iostream>
+	"include/node_2.h"
+	"include/bag5.h"
+
+1612100433 d:\users\ifsob\cpp_workspace\datastruct_in_cpp\chap6_template\include\node_2.h
+
+1611833092 d:\users\ifsob\cpp_workspace\datastruct_in_cpp\chap6_template\include\node_2.template
+	<iostream>
+
+1611833110 d:\users\ifsob\cpp_workspace\datastruct_in_cpp\chap6_template\include\bag5.h
+	"node_2.h"
+

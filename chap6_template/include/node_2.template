@@ -1,0 +1,89 @@
+#include<iostream>
+
+namespace hiukong_dan{
+
+template<class Item, class SizeType>
+void list_count(Node<Item>* headPtr, Item entry){
+	SizeType ret = 0;
+	Node<Item>* cursor = headPtr;
+	while(cursor != NULL){
+		if(cursor->data() == entry){
+			++ret;
+		}
+		cursor = cursor->link();
+	}
+	return ret;
+}
+
+template<class Item, class SizeType>
+void list_size(Node<Item>* headPtr){
+	SizeType ret = 0;
+	Node<Item>* cursor = headPtr;
+	while(cursor != NULL){
+		++ret;
+		cursor = cursor->link();
+	}
+	return ret;
+}
+
+template<class Item>
+void list_head_insert(Node<Item>*& headPtr, Item entry){
+	headPtr = new Node<Item>(entry, headPtr);
+}
+
+template<class Item>
+void list_head_remove(Node<Item>*& headPtr){
+	if(headPtr != NULL){
+		Node<Item>* cursor = headPtr;
+		headPtr = headPtr->link();
+		delete cursor;
+	}
+}
+
+template<class Item>
+void list_zero_all(Node<Item>* headPtr){
+    NodeIterator<Item> start(headPtr);
+    NodeIterator<Item> end;
+    while(start != end){
+        *start = 0;
+        ++start;
+    }
+}
+
+template<class Item, class SizeType>
+SizeType list_zero_count(const Node<Item>* headPtr){
+    Const_NodeIterator<Item> it(headPtr);
+    Const_NodeIterator<Item> end;
+    SizeType ret = 0;
+    while(it != end){
+        if(*it == 0){
+            ++ret;
+        }
+        ++it;
+    }
+    return ret;
+}
+
+template<class Item>
+void list_traverse(Node<Item>* headPtr){
+    NodeIterator<Item> it(headPtr);
+    NodeIterator<Item> end;
+    while(it != end){
+        std::cout<<*it<<" ";
+        ++it;
+    }
+}
+
+template<class Item>
+void list_clear(Node<Item>*& headPtr){
+    Node<Item>* cursor = headPtr;
+    Node<Item>* old;
+    while(cursor != NULL){
+        old = cursor;
+        cursor = cursor->link();
+        delete old;
+    }
+    headPtr = NULL;
+}
+
+};

@@ -1,9 +1,14 @@
-// Test Program for node_1.h
-
 #include "bag_1.h"
 #include <iostream>
 #include <cstring>
+#include "integer_1.h"
+#include "sequence_1.h"
+#include "sequence_2.h"
+#include "circular_linked_list_1.h"
 
+using namespace hiukong_dan;
+
+/*
 // Precondition: typedef std::string Node::value_type at node_1.h
 void dsc_chap5_1(){
 	Bag nounBag;
@@ -293,9 +298,114 @@ void dsc_chap5_9(){
 	bag1.traverse();
 }
 
+void dsc_chap5_11(){
+	hiukong_dan::Integer integer("1234567890");
+	hiukong_dan::Integer integer1("987654321");
+	
+	std::cout<<"   "<<integer.to_string()<<"\n"<<"-  "<<integer1.to_string()<<"\n";
+	std::cout<<"-----------------------\n";
+	hiukong_dan::Integer integer2 = integer - integer1;
+	std::cout<<"  "<<integer2.to_string()<<std::endl;
+}
+
+
+void dsc_chap5_14(){
+	hiukong_dan::Sequence s1;
+	s1.insert(12);
+	s1.insert(100);
+	s1.insert(30);
+	for(s1.start(); s1.is_item(); s1.advance()){
+		std::cout<<s1.current()<<" ";
+	}
+	
+	s1.start();  // ->30 100 12
+	s1.advance();	// 30 ->100 12
+	s1.advance();	// 30 100 ->12
+	s1.attach(77); // 30 100 12 ->77
+	s1.insert(89);	// 30 100 12 ->89 77
+	s1.remove_current(); // 30 100 12 ->77
+	s1.start();	// ->30 100 12 77
+	s1.remove_current();	// ->100 12 77
+	std::cout<<"current: (100) "<<s1.current()<<std::endl;
+	std::cout<<"after removal: ";
+	std::cout<<"itemCount: "<<s1.size()<<std::endl;
+	for(s1.start(); s1.is_item(); s1.advance()){
+		std::cout<<s1.current()<<" ";
+	}
+}
+
+
+
+void dsc_chap5_15(){
+		
+	DL_Node* headPtr = NULL;
+	dl_attach(headPtr, 3);
+	DL_Node* tailPtr = headPtr;
+	dl_traverse(headPtr);
+	dl_attach(tailPtr, 4);
+	tailPtr = tailPtr->next_link();
+	dl_traverse(headPtr);
+	dl_attach(tailPtr, 5);
+	tailPtr = tailPtr->next_link();
+	dl_traverse(headPtr);
+	dl_attach(tailPtr, 6);
+	tailPtr = tailPtr->next_link();
+	dl_traverse(headPtr);
+	
+	
+	DL_Node *headPtr1, *tailPtr1;
+	headPtr = NULL;
+	headPtr1 = tailPtr1 = NULL;
+	dl_copy(headPtr, headPtr1, tailPtr1);
+	std::cout<<"copied: ";
+	dl_traverse(headPtr1);
+	
+	
+	Sequence_DL s1;
+	Sequence_DL s2;
+	s1.remove_current();
+	s1.attach(12);
+	s1.attach(34);
+	s1.attach(89);
+	s1.attach(100);
+	s1.end();
+	s1.remove_current();
+	for(s1.start(); s1.is_item(); s1.advance()){
+		std::cout<<s1.current()<<" ";
+	}
+}
+*/
+
+void dsc_chap5_17(){
+	CL_Node* headPtr = NULL;
+	cl_insert_head(headPtr, 1);
+	
+	std::cout<<cl_count(headPtr, 1)<<std::endl;
+	std::cout<<cl_count(headPtr, 0)<<std::endl;
+	std::cout<<cl_size(headPtr)<<std::endl;
+	cl_insert_head(headPtr, 2);
+	std::cout<<cl_count(headPtr, 2)<<std::endl;
+	std::cout<<cl_size(headPtr)<<std::endl;
+	CL_Node* cursor = headPtr->link();
+	cl_insert(cursor, 3);
+	cl_attach(cursor, 4);
+	cl_traverse(headPtr);
+	//CL_Node* target = cl_search(headPtr, 3);
+	//cl_remove(headPtr, target);
+	//cl_remove(headPtr, 2);
+	//cl_traverse(headPtr);
+	CL_Node* headPtr1 = NULL;
+	cl_copy(headPtr, headPtr1);
+	cl_traverse(headPtr1);
+	cl_insert_head(headPtr, 8);
+	cl_insert_head(headPtr, 9);
+	cl_copy(headPtr, headPtr1);
+	cl_traverse(headPtr1);
+}
+
 int main(int argc, char** argv){
 	
-	dsc_chap5_9();
+	dsc_chap5_17();
 	
 	return 0;
 }

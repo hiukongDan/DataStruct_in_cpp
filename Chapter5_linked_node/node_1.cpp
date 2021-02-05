@@ -70,6 +70,22 @@ void node_insert(Node*& insertPtr, Node::value_type entry){
 	}
 }
 
+void node_insert_tail(Node*& headPtr, Node::value_type entry){
+	if(headPtr == NULL){
+		node_insert_head(headPtr, entry);
+	}
+	else{
+		Node* cursor = headPtr;
+		while(cursor != NULL){
+			if(cursor->link() == NULL){
+				node_insert(cursor, entry);
+				break;
+			}
+			cursor = cursor->link();
+		}
+	}
+}
+
 const Node* node_search(const Node* headPtr, Node::value_type target){
 	const Node* cursor;
 	for(cursor = headPtr; cursor != NULL && cursor->data() != target; cursor = cursor->link()){

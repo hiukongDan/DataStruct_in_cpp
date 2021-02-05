@@ -8,7 +8,7 @@
 
 class Node{
 	public:
-		typedef std::string value_type;
+		typedef int value_type;
 		typedef std::size_t size_type;
 		
 		Node();
@@ -40,6 +40,8 @@ void node_insert_head(Node*& headPtr, Node::value_type entry);
 
 void node_insert(Node*& insertPtr, Node::value_type entry);
 
+void node_insert_tail(Node*& headPtr, Node::value_type entry);
+
 const Node* node_search(const Node* headPtr, Node::value_type target);
 
 Node* node_search(Node* headPtr, Node::value_type target);
@@ -48,7 +50,7 @@ void node_remove(Node*& headPtr, Node::value_type target);
 
 void node_remove(Node*& headPtr, Node*& targetPtr);
 
-Node* node_locate(Node* headptr, Node::size_type i);
+Node* node_locate(Node* headPtr, Node::size_type i);
 
 Node::size_type node_copy(Node*& sourcePtr, Node*& headPtr, Node*& tailPtr);
 

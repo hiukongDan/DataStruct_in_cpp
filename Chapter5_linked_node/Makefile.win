@@ -4,14 +4,14 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o bag_1.o node_1.o course_1.o student_1.o
-LINKOBJ  = main.o bag_1.o node_1.o course_1.o student_1.o
+OBJ      = main.o bag_1.o node_1.o course_1.o student_1.o integer_1.o sequence_1.o doubly_linked_list_1.o sequence_2.o circular_linked_list_1.o bag_3_circular_linked_list.o
+LINKOBJ  = main.o bag_1.o node_1.o course_1.o student_1.o integer_1.o sequence_1.o doubly_linked_list_1.o sequence_2.o circular_linked_list_1.o bag_3_circular_linked_list.o
 LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = node_1.exe
-CXXFLAGS = $(CXXINCS) -g3
-CFLAGS   = $(INCS) -g3
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11
+CFLAGS   = $(INCS) -g3 -std=c++11
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -38,3 +38,21 @@ course_1.o: course_1.cpp
 
 student_1.o: student_1.cpp
 	$(CPP) -c student_1.cpp -o student_1.o $(CXXFLAGS)
+
+integer_1.o: integer_1.cpp
+	$(CPP) -c integer_1.cpp -o integer_1.o $(CXXFLAGS)
+
+sequence_1.o: sequence_1.cpp
+	$(CPP) -c sequence_1.cpp -o sequence_1.o $(CXXFLAGS)
+
+doubly_linked_list_1.o: doubly_linked_list_1.cpp
+	$(CPP) -c doubly_linked_list_1.cpp -o doubly_linked_list_1.o $(CXXFLAGS)
+
+sequence_2.o: sequence_2.cpp
+	$(CPP) -c sequence_2.cpp -o sequence_2.o $(CXXFLAGS)
+
+circular_linked_list_1.o: circular_linked_list_1.cpp
+	$(CPP) -c circular_linked_list_1.cpp -o circular_linked_list_1.o $(CXXFLAGS)
+
+bag_3_circular_linked_list.o: bag_3_circular_linked_list.cpp
+	$(CPP) -c bag_3_circular_linked_list.cpp -o bag_3_circular_linked_list.o $(CXXFLAGS)
